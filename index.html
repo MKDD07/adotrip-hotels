@@ -1,0 +1,65 @@
+<!-- Keep your page's existing Bootstrap / Font Awesome / lightgallery includes in <head>. -->
+<link rel="stylesheet" href="style.min.css">
+
+<div id="hotelResultsContainer"></div>
+
+<!-- Single mock card: every data-f hook is filled from hotels.json -->
+<template id="hotelCardTpl">
+  <div class="row hotel-card p-3 rating_hide">
+    <div class="col-lg-4 pl-0 position-relative p-mobile">
+      <div class="hotel-img-main lightgallery">
+        <a data-f="mainLink" target="_blank" rel="noopener"><img data-f="mainImg" alt="" title=""></a>
+      </div>
+      <div class="d-flex gap-1 my-2 thumbs lightgallery" data-f="thumbs"></div>
+    </div>
+
+    <div class="col-lg-5 col-8 p-mobile">
+      <h5><strong data-f="name"></strong></h5>
+      <span class="rating-stars" data-f="stars"></span>
+      <p class="mb-1 mt-2 text-muted"><i class="bi bi-geo-alt"></i> <span data-f="address"></span></p>
+      <p class="text-success mb-1" data-f="region"></p>
+      <div class="flx_div" data-f="amenities"></div>
+
+      <div class="row mt-3">
+        <div class="col-6">
+          <h6 class="text-success small fw-bold mb-1"><i class="fa fa-check-circle"></i> Inclusions</h6>
+          <ul class="list-unstyled small text-muted inc-list"><li class="inclusion-text" data-f="inclusions"></li></ul>
+        </div>
+        <div class="col-6">
+          <h6 class="text-success small fw-bold mb-1"><i class="fa fa-check-circle"></i> Meal Type</h6>
+          <ul class="list-unstyled small text-muted inc-list"><li data-f="meal"></li></ul>
+        </div>
+        <div class="col-12 mt-3">
+          <h6 class="text-success small fw-bold mb-1"><i class="fa fa-check-circle"></i> Room Promotion</h6>
+          <ul class="list-unstyled small text-muted inc-list"><li data-f="promo"></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-4 text-end border-left pr-0 p-mobile d-flex flex-column justify-content-between">
+      <div class="d-flex justify-content-end">
+        <div class="rating-score-box mb-1">
+          <div class="text-end">
+            <div class="rating-label-title" data-f="ratingLabel">Excellent</div>
+            <div class="rating-reviews-count"><span data-f="reviews"></span> reviews</div>
+          </div>
+          <span class="score-badge">4.8</span>
+        </div>
+      </div>
+      <div class="price-action-section pt-2">
+        <div class="price-box mb-2">
+          <small class="text-muted d-block" style="font-size: 11px;">Starts from</small>
+          <span class="fs-5 fw-bold hotel-price-tag">INR <span data-f="price"></span></span>
+          <small class="text-muted d-block" style="font-size: 11px;">+ taxes &amp; fees &bull; Per Night</small>
+        </div>
+        <button class="btn btn-warning w-100 hotel-book-btn" type="button">
+          <span class="btn-text"><i class="fa-solid fa-calendar-check me-1"></i> Book Now</span>
+          <span class="btn-loader d-none"><i class="fa-solid fa-spinner fa-spin"></i></span>
+        </button>
+        <div class="hotel-error text-danger mt-1 text-center" style="font-size: 11.5px;"></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script src="app.min.js"></script>

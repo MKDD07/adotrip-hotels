@@ -1,0 +1,367 @@
+/* ==========================================================================
+   HOTEL CARD EQUAL HEIGHT & DYNAMIC COLUMN SIZING (CSS ONLY)
+   ========================================================================== */
+
+/* Main Card Row: Equal-height column stretching */
+.hotel-card {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: stretch !important;
+    background: #ffffff;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    margin-bottom: 20px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.hotel-card:hover {
+    border-color: #cbd5e1 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   COL 1 (Left): Dynamic Image & Gallery Column
+   -------------------------------------------------------------------------- */
+.hotel-card > .col-lg-4,
+.hotel-card > div:first-child {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: auto !important;
+}
+
+/* Main hotel image container with 4/3 aspect ratio */
+.hotel-card .hotel-img-main {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 4 / 3 !important;
+    background: #f1f5f9;
+    display: flex !important;
+}
+
+.hotel-card .hotel-img-main a {
+    display: flex !important;
+    width: 100%;
+    height: 100%;
+    flex: 1 1 auto;
+}
+
+.hotel-card .hotel-img-main img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 3 !important;
+    object-fit: cover !important;
+    border-radius: 8px;
+    display: block;
+    transition: transform 0.4s ease;
+    flex: 1 1 auto;
+}
+
+.hotel-card:hover .hotel-img-main img {
+    transform: scale(1.03);
+}
+
+/* Thumbnail row stays pinned cleanly at bottom without shrinking or stretching */
+.hotel-card .thumbs {
+    display: flex !important;
+    gap: 6px !important;
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
+    flex: 0 0 auto !important;
+}
+
+.hotel-card .thumbs a {
+    display: inline-block;
+    flex: 1 1 0;
+    height: 48px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.hotel-card .thumbs a:hover {
+    transform: scale(1.05);
+    border-color: #94a3b8;
+}
+
+.hotel-card .thumbs img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --------------------------------------------------------------------------
+   COL 2 (Middle): Dynamic Details, Badges & Inclusions
+   -------------------------------------------------------------------------- */
+.hotel-card > .col-lg-5,
+.hotel-card > div:nth-child(2) {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: auto !important;
+}
+
+.hotel-card .flx_div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 6px 0 !important;
+}
+
+.hotel-card .flx_div p {
+    margin: 0;
+}
+
+.hotel-card .flx_div .badge {
+    background: #f8fafc !important;
+    color: #475569 !important;
+    border: 1px solid #e2e8f0 !important;
+    font-weight: 500 !important;
+    font-size: 11.5px !important;
+    padding: 4px 8px !important;
+    border-radius: 5px !important;
+}
+
+/* Inclusions & Highlights box pinned cleanly to bottom */
+.hotel-card .hotel-inclusions-card,
+.hotel-card .col-lg-5 > .row:last-child {
+    margin-top: auto !important;
+}
+
+.inclusion-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+}
+
+.inc-list {
+    font-size: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   COL 3 (Right): Pricing & Action Column
+   -------------------------------------------------------------------------- */
+.hotel-card > .col-lg-3,
+.hotel-card > .border-left,
+.hotel-card > div:last-child {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: auto !important;
+    border-left: 1px solid #f1f5f9 !important;
+}
+
+.hotel-card .rating-score-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 6px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.hotel-card .rating-label-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #15803d;
+    line-height: 1.2;
+}
+
+.hotel-card .rating-reviews-count {
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.2;
+}
+
+.hotel-card .score-badge {
+    background: linear-gradient(135deg, #15803d, #16a34a);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 13px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    line-height: 1;
+    letter-spacing: -0.2px;
+    box-shadow: 0 2px 4px rgba(22, 163, 74, 0.25);
+}
+
+.hotel-card .price-action-section,
+.hotel-card > .col-lg-3 > .hotel-book-btn,
+.hotel-card > .col-lg-3 > div:has(.hotel-book-btn) {
+    margin-top: auto !important;
+}
+
+.hotel-card .hotel-book-btn {
+    background: #fee400 !important;
+    color: #000000 !important;
+    border: 1px solid #ebd300 !important;
+    font-weight: 700 !important;
+    font-size: 13.5px !important;
+    border-radius: 8px !important;
+    padding: 8px 16px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 6px rgba(254, 228, 0, 0.3);
+}
+
+.hotel-card .hotel-book-btn:hover {
+    background: #0f172a !important;
+    color: #fee400 !important;
+    border-color: #0f172a !important;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   Mobile responsiveness
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .hotel-card {
+        display: block !important;
+    }
+    .hotel-card .hotel-img-main {
+        min-height: 200px;
+        aspect-ratio: 16 / 9;
+    }
+    .hotel-card > .border-left {
+        border-left: none !important;
+        border-top: 1px solid #f1f5f9 !important;
+        padding-top: 12px;
+        margin-top: 12px;
+    }
+}
+
+/* ==========================================================================
+   YELLOW PIN MULTI-LINGUAL HOTEL LOADER MODAL
+   ========================================================================== */
+#ov {
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 14, 28, 0.72);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: none;
+    place-items: center;
+    z-index: 999999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+#ov.on {
+    display: grid;
+}
+#ov.show {
+    opacity: 1;
+}
+#bx {
+    width: min(92vw, 440px);
+    animation: pop 0.5s cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+#sc {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 14px;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+#rg {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.14);
+    border-top-color: #FDE300;
+    border-right-color: rgba(253, 227, 0, 0.35);
+    animation: s 1.4s linear infinite;
+}
+#rg:before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    width: 9px;
+    height: 9px;
+    margin-left: -4.5px;
+    border-radius: 50%;
+    background: #FDE300;
+    box-shadow: 0 0 10px #FDE300;
+}
+#wh {
+    height: 108px;
+    overflow: hidden;
+    -webkit-mask: linear-gradient(transparent, #000 30%, #000 70%, transparent);
+    mask: linear-gradient(transparent, #000 30%, #000 70%, transparent);
+}
+#cl {
+    transition: transform 0.7s cubic-bezier(0.6, 0.05, 0.25, 1);
+}
+#cl div {
+    height: 36px;
+    line-height: 36px;
+    font-size: 14.5px;
+    opacity: 0.3;
+    transform: scale(0.82) rotateX(35deg);
+    transition: 0.7s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#cl div.a {
+    opacity: 1;
+    transform: none;
+    font-weight: 600;
+    color: #FDE300;
+}
+#pn {
+    width: 44px;
+    height: 52px;
+    overflow: visible;
+    animation: bn 1.3s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(253, 227, 0, 0.55));
+}
+#sd {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    width: 28px;
+    height: 6px;
+    margin-left: -14px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    animation: sw 1.3s ease-in-out infinite;
+}
+.sh {
+    animation: sv 1.8s ease-in-out infinite;
+}
+@keyframes bn {
+    0%, 100% { transform: translateY(2px) scale(1, 0.96); }
+    50% { transform: translateY(-7px) scale(1, 1.03) rotate(-3deg); }
+}
+@keyframes sw {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(0.6); opacity: 0.2; }
+}
+@keyframes sv {
+    0% { transform: translateX(-14px) skewX(-20deg); }
+    60%, 100% { transform: translateX(50px) skewX(-20deg); }
+}
+@keyframes s {
+    to { transform: rotate(360deg); }
+}
+@keyframes pop {
+    0% { transform: scale(0.8); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #rg, #pn, #sd, .sh { animation-duration: 4s !important; }
+    #cl, #cl div { transition: none !important; }
+}
